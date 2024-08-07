@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Operasyon Birimi",
+    "description": "Bu örnek görevdir. Örnek görevin içeriğine dair açıklama detail'da bulunmaktadır.",
+    "date": "05.02.2024 - 10.02.2024",
+    "milestone": "Milestone Name",
+    "members": [{ "name": "Member1", "imgSrc": "/path/to/avatar2.png" }],
+    "flag": "/path/to/flag1.png",
+    "titleColor": "text-Orange"
+  },
+  {
+    "title": "Teknik Birimi",
+    "description": "İkinci bir görev.",
+    "date": "05.02.2024 - 10.02.2024",
+    "milestone": "Milestone Name",
+    "members": [{ "name": "Member3", "imgSrc": "/path/to/avatar1.png" }],
+    "flag": "/path/to/flag2.png",
+    "titleColor": "text-DarkPurple"
+  },
+  {
+    "title": "Test ve Onay Birimi",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias pariatur consequuntur natus, aperiam, eos corporis voluptatem...",
+    "date": "05.02.2024 - 10.02.2024",
+    "milestone": "Milestone Name",
+    "members": [{ "name": "Member6", "imgSrc": "/path/to/avatar3.png" }],
+    "flag": "/path/to/flag3.png",
+    "titleColor": "text-Green"
+  }
+]
