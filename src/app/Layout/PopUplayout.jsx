@@ -5,15 +5,16 @@ import PopUpRightBar from "../Component/PopUp/PopUpRightBar"
 
 const PopUpLayout = () => {
 	return (
-		<div className="mt-6 w-full max-w-[74.75rem] h-[48rem] mx-auto bg-white shadow-lg rounded-lg">
+		<div className=" h-full">
 			<PopUpHeader />
-			<div className="grid grid-cols-1 sm:grid-cols-[1fr] md:grid-cols-[1fr] lg:grid-cols-[792px_328px_60px] py-4 px-4 gap-4">
+			<div className="grid grid-cols-1 lg:grid-cols-[792px_328px_60px] py-4 px-4 gap-4 h-full">
 				<PopUpContent />
 				<PopUpActivity />
 				<PopUpRightBar />
+
 			</div>
 		</div>
-	)
+	);
 }
 
-export default PopUpLayout
+export default PopUpLayout;

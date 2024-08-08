@@ -1,38 +1,12 @@
-// import DatePicker from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker.css'
-
-const CustomDatePicker = () => {
-	// const [startDate, setStartDate] = useState(new Date())
-	// const [endDate, setEndDate] = useState(new Date())
-
+import Image from 'next/image'
+import Icon3 from "../../public/assets/Icon3.png"
+const DatePicker = () => {
 	return (
-		<div className="flex">
-			<p>date picker</p>
-			{/* <DatePicker
-				selected={startDate}
-				onChange={(date) => setStartDate(date)}
-				selectsStart
-				startDate={startDate}
-				endDate={endDate}
-				dateFormat="dd.MM.yyyy"
-				// className=" px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-				placeholderText="Başlangıç Tarihi"
-			/>
-			<span className=" text-gray-500">-</span>
-			<DatePicker
-				selected={endDate}
-				onChange={(date) => setEndDate(date)}
-				selectsEnd
-				startDate={startDate}
-				endDate={endDate}
-				minDate={startDate}
-				dateFormat="dd.MM.yyyy"
-				// className=" px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-				placeholderText="Bitiş Tarihi"
-			/> */}
-
+		<div className='flex items-center gap-1 border border-BorderColor w-[220px] h-[40px]'>
+			<Image src={Icon3} alt='Icon3' width={20} height={20}></Image>
+			<p className='text-sm	'>05.02.2024 - 20.04.2024</p>
 		</div>
+
 	)
 }
-
-export default CustomDatePicker
+export default DatePicker

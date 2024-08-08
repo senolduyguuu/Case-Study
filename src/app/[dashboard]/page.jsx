@@ -64,7 +64,6 @@ export default function Dashboard() {
 						<RightLayout boards={boards} onTaskClick={handleTaskClick} />
 					</div>
 				</div>
-				{/* {showPopup && <PopUpLayout task={selectedTask} onClose={handleClosePopup} />} */}
 			</div>
 		</>
 	);

@@ -1,6 +1,7 @@
+import TaskDetails from "./Attachment"
 import DatePicker from "./DatePicker"
 import PopoUpLeft from "./PopUpLeft"
-import TaskStatus from "./TaskStatus"
+
 
 const PopUpContent = () => {
 	return (
@@ -8,9 +9,8 @@ const PopUpContent = () => {
 			<div className="flex justify-between">
 				<PopoUpLeft></PopoUpLeft>
 				<DatePicker></DatePicker>
-
 			</div>
-			<TaskStatus></TaskStatus>
+			<TaskDetails></TaskDetails>
 		</div>
 	)
 }

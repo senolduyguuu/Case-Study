@@ -1,7 +1,9 @@
 "use client";
 
+import PopUpLayout from '@/app/Layout/PopUplayout';
 import Image from 'next/image';
 import { useState } from 'react';
+import AvatarOne from '../../public/Avatar group.png';
 import Calendar from '../../public/Calendar - 2 1.png';
 import FlagOne from "../../public/Flag - 1.png";
 import Layer from '../../public/Layer 1.png';
@@ -10,11 +12,12 @@ import Plus from '../../public/Plus 4.png';
 import Rectangle from "../../public/Rectangle 41978.png";
 import Board from './Board';
 
-
 const BoardCard = ({ boardTitle }) => {
 	const [showNewTaskForm, setShowNewTaskForm] = useState(false);
 	const [newTask, setNewTask] = useState({ title: '', description: '', date: '', milestone: '', members: [], titleColor: 'text-Orange' });
 	const [tasks, setTasks] = useState([]);
+	const [showTaskDetails, setShowTaskDetails] = useState(false);
+	const [selectedTask, setSelectedTask] = useState(null);
 
 	const handleNewTaskClick = () => {
 		setShowNewTaskForm(true);
@@ -32,11 +35,21 @@ const BoardCard = ({ boardTitle }) => {
 		setNewTask({ title: '', description: '', date: '', milestone: '', members: [], titleColor: 'text-Orange' });
 	};
 
+	const handleTaskClick = (task) => {
+		setSelectedTask(task);
+		setShowTaskDetails(true);
+	};
+
+	const handleCloseTaskDetails = () => {
+		setShowTaskDetails(false);
+		setSelectedTask(null);
+	};
+
 	return (
 		<Board>
 			<div className="flex justify-between items-center mb-4 border-b border-gray-300 pb-2">
 				<div className="flex items-center">
-					<h2 className="font-normal text-Purple text-base mr-2">{boardTitle}</h2>
+					<h2 className="font-normal text-Purple text-base mr-2">Board Title</h2>
 					<span className="flex items-center justify-center w-6 h-6 bg-CircleColor border-CircleBorderColor border-2 text-CircleTextColor rounded-full text-sm">{tasks.length}</span>
 				</div>
 				<div className="flex items-center space-x-2">
@@ -94,7 +107,7 @@ const BoardCard = ({ boardTitle }) => {
 			)}
 			<div className="mt-4 overflow-y-auto max-h-[20rem]">
 				{tasks.map((task, index) => (
-					<div key={index} className="rounded-lg p-4 border border-BorderColor hover:shadow-lg hover:border-blue-500 transition duration-300 ease-in-out">
+					<div key={index} className="rounded-lg p-4 border border-BorderColor hover:shadow-lg hover:border-blue-500 transition duration-300 ease-in-out cursor-pointer" onClick={() => handleTaskClick(task)}>
 						<h3 className={`font-semibold text-sm mb-2 ${task.titleColor || 'text-Orange'}`}>{task.title}</h3>
 						<p>{task.description}</p>
 						<div className="flex justify-between items-center">
@@ -137,6 +150,21 @@ const BoardCard = ({ boardTitle }) => {
 						</div>
 					</div>
 				))}
+			</div>
+			<div className='relative'>
+				{showTaskDetails && selectedTask && (
+					<div
+						className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10"
+						onClick={handleCloseTaskDetails}
+					>
+						<div
+							className="bg-white rounded-lg shadow-lg p-4 max-w-[78.75rem] w-full mx-4 my-6 sm:my-10"
+							onClick={(e) => e.stopPropagation()}
+						>
+							<PopUpLayout onClose={handleCloseTaskDetails} />
+						</div>
+					</div>
+				)}
 			</div>
 		</Board>
 	);
