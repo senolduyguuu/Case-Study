@@ -1,27 +1,21 @@
 "use client";
-
-import { useState } from 'react';
 import Board from './Board';
 import BoardCard from './BoardCard';
 import OpenBoardSection from './OpenBoardSection';
 
-const BoardContainer = () => {
-	const [boards, setBoards] = useState([
-		{ title: 'Board 1' },
-		{ title: 'Board 2' },
-		{ title: 'Board 3' },
-		{ title: 'Board 4' }
-	]);
-
+const BoardContainer = ({ boards }) => {
 	const addBoard = () => {
-		const newBoardTitle = `Board ${boards.length + 1}`;
-		setBoards([...boards, { title: newBoardTitle }]);
+		const newBoard = {
+			title: `Board ${boards.length + 1}`,
+			description: ''
+		};
+		setBoards([...boards, newBoard]);
 	};
 
 	return (
 		<div className="flex gap-4 overflow-x-auto py-4 scrollbar-hide">
 			<div className="flex gap-4 flex-nowrap">
-				<OpenBoardSection />
+				<OpenBoardSection boards={boards} />
 				{boards.map((board, index) => (
 					<BoardCard key={index} boardTitle={board.title} />
 				))}
